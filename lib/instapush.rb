@@ -1,5 +1,6 @@
 require "instapush/version"
+require "instapush/application"
+require "instapush/event"
 
 module Instapush
-  # Your code goes here...
 end
