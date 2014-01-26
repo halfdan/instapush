@@ -4,13 +4,13 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'instapush/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "instapush"
+  spec.name          = "instapush-api"
   spec.version       = Instapush::VERSION
   spec.authors       = ["Fabian Becker"]
   spec.email         = ["halfdan@xnorfz.de"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = %q{Instapush.im API Wrapper}
+  spec.description   = %q{Instapush.im allows you to send push notifications to your mobile device. This library provides a simple API wrapper for the service.}
+  spec.homepage      = "http://github.com/halfdan/instapush"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -21,4 +21,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.5"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
+  spec.add_development_dependency "webmock"
 end
