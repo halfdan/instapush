@@ -10,6 +10,20 @@ describe Instapush::Application do
     lambda { app.push('foo')}.should raise_error(ArgumentError)
   end
 
+  it 'should use HTTP by default' do
+    app = Instapush::Application.new 'id', 'secret'
+    stub_request(:post, "http://api.instapush.im/post")
+
+    app.push @event
+  end
+
+  it 'should use HTTPS if requested' do
+    app = Instapush::Application.new 'id', 'secret', use_ssl: true
+    stub_request(:post, "https://api.instapush.im/post").with(body: {})
+
+    app.push @event
+  end
+
   it 'should send the event name in the body' do
     app = Instapush::Application.new 'id', 'secret'
     stub_request(:post, "api.instapush.im/post").with(:body => "{\"event\":\"event\",\"trackers\":{}}")
